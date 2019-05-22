@@ -19,3 +19,8 @@ css选择器
 	body="<h1 href='baidu.com'>hello</h1>"
 	s = Selector(text=body)
 	s.css('h1::text')
+
+	正则re/re_first
+	s.css('h1::text').re_first('.*')
+	全文正则
+	s.xpath('.').re()
