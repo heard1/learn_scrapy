@@ -1,6 +1,7 @@
 scrapy startproject NAME
 cd NAME
 scrapy genspider SPIDER_NAME www.xxx.com
+scrapy crawl zhihu_spider
 
 修改items.py成为自己的字典
 进入spiders文件夹修改SPIDER_NAME.py
