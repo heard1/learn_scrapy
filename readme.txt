@@ -24,3 +24,5 @@ css选择器
 	s.css('h1::text').re_first('.*')
 	全文正则
 	s.xpath('.').re()
+
+scrapy shell http://quotes.toscrape.com
