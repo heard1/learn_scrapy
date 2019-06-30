@@ -15,13 +15,18 @@ SPIDER_MODULES = ['zhihu.spiders']
 NEWSPIDER_MODULE = 'zhihu.spiders'
 
 # 金融
-INIT_URL = ["https://www.zhihu.com/topic/19609455/top-answers",
-
-
+INIT_URL = [
+    "https://www.zhihu.com/topic/19609455/top-answers",
+    "https://www.zhihu.com/topic/19560170/top-answers",
+    "https://www.zhihu.com/topic/19550560/top-answers",
+    "https://www.zhihu.com/topic/19555457/top-answers",
+    "https://www.zhihu.com/topic/19551404/top-answers"
             ]
 
 # 鼠标滚轮滚动次数，用于模拟下拉加载问题,本项目建议1000以上
-SCROLL_LEN = 11
+SCROLL_LEN = 10
+# 需要的单个回答评论数，不管你填什么都向下取到20的倍数
+TOTAL_COMMENT = 10000
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -72,9 +77,9 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'zhihu.pipelines.ZhihuPipeline': 300,
-#}
+ITEM_PIPELINES = {
+    'zhihu.pipelines.ZhihuPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -96,3 +101,12 @@ DOWNLOADER_MIDDLEWARES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+
+REDIS_HOST = "127.0.0.1"
+REDIS_PORT = 6379
+# REDIS_PASSWORD = ""
+
+SCHEDULER_PERSIST = True

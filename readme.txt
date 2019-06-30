@@ -21,6 +21,7 @@ css选择器
 	s = Selector(text=body)
 	s.css('h1::text')
 
+
 	正则re/re_first
 	s.css('h1::text').re_first('.*')
 	全文正则
